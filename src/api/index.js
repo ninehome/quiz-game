@@ -17,7 +17,7 @@ export function invite({ openid, code }) {
 }
 
 export function getQuestion({ openid, type, order }) {
-  return request('post', '/question', { openid, type, order });
+  return request('post', `/question/${order}`, { openid, type, order });
 }
 
 export function getScore({ openid, questionId, choice, costTime }) {

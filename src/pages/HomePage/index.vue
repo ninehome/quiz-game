@@ -114,23 +114,23 @@ export default {
   },
   methods: {
     play(type) {
-      switch (type) {
-        case 'normal':
-          if (this.gameNumber[0] <= 0) {
-            this.showPromptBox('游戏次数不够，尝试填写邀请码吧！');
-            return;
-          }
-          break;
-        case 'practice':
-          if (this.practiceNumber <= 0) {
-            this.showPromptBox('今日练习次数已用完，试试游戏模式吧！');
-            return;
-          }
-          break;
-        case 'activity':
-          break;
-        default:
-      }
+      // switch (type) {
+      //   case 'normal':
+      //     if (this.gameNumber[0] <= 0) {
+      //       this.showPromptBox('游戏次数不够，尝试填写邀请码吧！');
+      //       return;
+      //     }
+      //     break;
+      //   case 'practice':
+      //     if (this.practiceNumber <= 0) {
+      //       this.showPromptBox('今日练习次数已用完，试试游戏模式吧！');
+      //       return;
+      //     }
+      //     break;
+      //   case 'activity':
+      //     break;
+      //   default:
+      // }
       playGame({ openid: this.openid, type })
         .then((res) => {
           if (res.data.state) {

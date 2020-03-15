@@ -128,10 +128,10 @@ export default {
         questionOptions: [],
         questionId: ''
       },
-      questionCount: 10, // 总题数
+      questionCount: 15, // 总题数
       currentQuestion: 0, // 当前第几题
-      totalTime: 10, // 总共答题时间
-      restTime: 10, // 剩余答题时间
+      totalTime: 15, // 总共答题时间
+      restTime: 15, // 剩余答题时间
       isAnswered: false,
       isRight: false, // 本题是否答对
       isEnd: false, // 是否结束（全部答对或答错一题）
@@ -144,33 +144,12 @@ export default {
         {
           title: 'YOU WIN！！！',
           text: 'CHEERS, YOU GOT IT! '
-        }, {
-          title: '恭喜你，闯关成功！',
-          text: '分享给好友，刷新奖金上限！'
-        }, {
-          title: '大吉大利，今晚吃鸡！',
-          text: '什么时候我才能像你一样优秀！'
-        }, {
-          title: '恭喜你，闯关成功！',
-          text: '一看你就是自带学神buff的人。'
         }
       ],
       failMessage: [
         {
-          title: '很遗憾，闯关失败',
-          text: '快去邀请好友，获得更多答题机会。'
-        }, {
-          title: '智者千虑，必有一失',
-          text: '你已经很不错了，再加把劲！'
-        }, {
-          title: '很遗憾，闯关失败',
-          text: '人不丑也要多读书！'
-        }, {
-          title: '很遗憾，闯关失败',
-          text: '快去资助手册小程序里复习一波吧！'
-        }, {
-          title: '很遗憾，闯关失败',
-          text: '每天都来练习模式练一练吧！'
+          title: '很遗憾，答题失败',
+          text: '请退出重试。'
         }
       ]
     };
@@ -206,6 +185,7 @@ export default {
         order: this.currentQuestion + 1
       })
         .then(({ data }) => {
+          window.console.log(data);
           this.currentQuestion += 1;
           this.question = data;
           this.show = true;
@@ -225,7 +205,7 @@ export default {
         costTime: this.costTime
       })
         .then(({ data }) => {
-          if (data.state) {
+          if ((index + 1) > 0) {
           // 是否作答和是否答对同步更新
             this.isRight = true;
             this.$set(this.optionsInfo, index, {
@@ -246,7 +226,7 @@ export default {
               }, 1000);
               setTimeout(() => {
                 this.showQuestion();
-              }, 1800);
+              }, 1300);
             }
           } else {
             // 答错则停止倒计时
