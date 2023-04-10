@@ -142,14 +142,14 @@ export default {
       showMessage: {}, // 要展示的消息
       successMessage: [
         {
-          title: 'YOU WIN！！！',
-          text: 'CHEERS, YOU GOT IT! '
+          title: '恭喜！！！',
+          text: '完成非常好，可以得到300卢布，请联系工作人员 '
         }
       ],
       failMessage: [
         {
-          title: '很遗憾，答题失败',
-          text: '请退出重试。'
+          title: '很遗憾！',
+          text: '未填写完整，无法得到300卢布，请退出重试。'
         }
       ]
     };
